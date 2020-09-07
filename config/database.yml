@@ -13,6 +13,8 @@
 #
 # Configure Using Gemfile
 # gem 'pg'
+# config/database.yml
+# [...]
 #
 default: &default
   adapter: postgresql
@@ -79,6 +81,8 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
+  <<: *default
+  url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
   <<: *default
   database: rails-garden-manager_production
   username: rails-garden-manager_production
